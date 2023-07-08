@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: left;
+}
+
+.severity {
+  padding: 5px;
+}
+
+.critical {
+  background-color: red;
+}
+
+.major {
+  background-color: orange;
+}
+
+.medium {
+  background-color: yellow;
+}
+
+.normal {
+  background-color: green;
+}
+
+.filter-container {
+  margin-bottom: 10px;
+}
+
+select {
+  margin-left: 5px;
+}

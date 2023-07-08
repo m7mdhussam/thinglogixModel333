@@ -1,0 +1,34 @@
+<div class="alarm-list">
+
+  <div class="filter-container">
+    <label for="severity-filter">Filter by Severity:</label>
+    <select id="severity-filter" (change)="onFilterChange($event)">
+      <option value="">All</option>
+      <option value="Critical">Critical</option>
+      <option value="Major">Major</option>
+      <option value="Medium">Medium</option>
+      <option value="Normal">Normal</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Severity</th>
+      <th>Date and Time</th>
+      <th>Device Name</th>
+      <th>Network Address</th>
+      <th>Alarm Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let alarm of filteredAlarms">
+      <td class="severity" [style.background-color]="getSeverityColor(alarm.severity)">{{ alarm.severity }}</td>
+      <td>{{ alarm.time }}</td>
+      <td>{{ alarm.deviceName }}</td>
+      <td>{{ alarm.networkAddress }}</td>
+      <td>{{ alarm.alarmTitle }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

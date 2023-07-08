@@ -1,0 +1,25 @@
+<div class="fuel-bar-container">
+  <svg width="200" height="110">
+    <path class="fuel-gauge-background" [attr.d]="getFuelGaugePath()"></path>
+    <path class="fuel-gauge-progress"
+          [attr.d]="getFuelGaugePath()"
+          [style.stroke]="getFuelBarColor(fuelPercentage)"
+          [attr.stroke-dasharray]="getFuelGaugeCircumference()"
+          [attr.stroke-dashoffset]="getStrokeDashoffset(fuelPercentage)"></path>
+  </svg>
+
+  <div class="fuel-percentage">{{ getFuelInLiters() | number:'1.0-0' }} Liters</div>
+  <div class="fuel-text">Available</div>
+</div>
+
+<div class="tanks-info">
+  <div *ngFor="let tank of tanks" class="tank-info">
+    <div class="tank-details">
+      <div class="tank-name">{{ tank.name }}</div>
+      <div class="last-updated">Last updated: {{ tank.lastUpdated | date: 'short' }}</div>
+    </div>
+    <div class="tank-percentage" [style.background-color]="getFuelBarColor(tank.fuelPercentage)">
+      {{ tank.fuelPercentage }}%
+    </div>
+  </div>
+</div>

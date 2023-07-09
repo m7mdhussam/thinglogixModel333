@@ -1,3 +1,13 @@
-.site-view-container img {
-  max-width: 75%;
+/* site-view.component.css */
+
+.site-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

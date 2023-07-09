@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlarmService, Alarm } from '../alarm.service';
 
 @Component({
   selector: 'app-alarm-list',
@@ -7,70 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlarmListComponent implements OnInit {
 
-  alarms = [
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Major',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESH'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Critical',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESHO'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Medium',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESHO'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Normal',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESHO'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Major',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESH'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Critical',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESHO'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Medium',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESHO'
-    },
-    {
-      time: 'Apr 4, 2020, 3:15:22 PM GMT',
-      severity: 'Normal',
-      deviceName: 'PVC 1942',
-      networkAddress: '101.142.24.90',
-      alarmTitle: 'WATCHTHREESI'
-    }
-  ];
+  alarms: Alarm[] = [];
 
   severityFilter: string = '';
 
-  constructor() { }
+  constructor(private alarmService: AlarmService) { }
 
   ngOnInit(): void {
+    this.alarms = this.alarmService.getAlarms();
   }
 
   getSeverityColor(severity: string) {
